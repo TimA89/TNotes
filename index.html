@@ -1,17 +1,83 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <h1>Browser Template</h1>
-    </body>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <!-- Beginning of navbar -->
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <!-- Brand name -->
+      <a class="navbar-brand" href="#">Tpad</a>
+    </div>
+    <!-- All navigation to the right side -->
+    <ul class="nav navbar-nav navbar-right">
+      <!-- Explanation of Sign Up model-->
+      <li><a data-toggle="modal" data-target="#modal1"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="modalLabel">Sign Up!</h4>
+                </div>
+                <div class="modal-body">
+                  <form id="sign-up">
+                    <input class="user-account" type="text" name="credentials[email]" id="sign-up-email" placeholder="Email">
+                    <input class="user-account" type="password" name="credentials[password]" id="sign-up-password" placeholder="Password">
+                    <input class="user-account" type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="Confirm password">
+                    <input type="submit" name="submit" value="Sign up">
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <h2 class="failedmessage1"></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Explanation of Sign In model-->
+      <li><a data-toggle="modal" data-target="#modal2"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+      <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="modalLabel">Sign In!</h4>
+                </div>
+                <div class="modal-body">
+                  <form id="sign-in">
+                    <input class="user-account" type="text" name="credentials[email]" id="sign-in-email" placeholder="Email">
+                    <input class="user-account" type="password" name="credentials[password]" id="sign-in-password" placeholder="Password">
+                    <input type="submit" name="submit" value="Sign in!">
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <h2 class="failedmessage2"></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+      <!--  -->
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Out</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-edit"></span> Change Password</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- End of navbar -->
+<div id="main-content" class="container-fluid">
+      <h2 id="message"></h2>
+</div>
+</body>
+
 </html>
