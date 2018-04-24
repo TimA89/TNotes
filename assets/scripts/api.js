@@ -20,7 +20,7 @@ const signIn = function (data) {
 
 const signOut = function () {
   return $.ajax({
-    url: config.apiUrl + '/sign-out/' + store.user.id,
+    url: config.apiUrl + '/sign-out/', // + store.user.id,
     method: 'DELETE',
     headers: {
       contentType: 'application/json',
@@ -31,7 +31,7 @@ const signOut = function () {
 
 const changePW = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/change-password/' + store.user.id,
+    url: config.apiUrl + '/change-password/', // + store.user.id,
     method: 'PATCH',
     headers: {
       contentType: 'application/json',
@@ -41,9 +41,16 @@ const changePW = function (data) {
   })
 }
 
+const getNotes = function () {
+  return $.ajax({
+    url: config.apiUrl + '/notes'
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
-  changePW
+  changePW,
+  getNotes
 }

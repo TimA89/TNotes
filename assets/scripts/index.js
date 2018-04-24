@@ -8,6 +8,13 @@
 
 const authEvents = require('./events')
 
+$('.my-notes').hide()
+$('.sign-out').hide()
+$('.a-change-pass').hide()
+$('.user-message').text('Please Sign In/Sign Up if you would like to see your notes')
+
+authEvents.onGetNotes()
+
 $(() => {
   authEvents.addHandlers()
 })

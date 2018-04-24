@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Example</title>
+  <title>TPad</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Do not add `link` tags-->
@@ -19,12 +19,12 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <!-- Brand name -->
-      <a class="navbar-brand" href="#">Tpad</a>
+      <a class="navbar-brand" id="brand">TPad</a>
     </div>
     <!-- All navigation to the right side -->
     <ul class="nav navbar-nav navbar-right">
       <!-- Explanation of Sign Up model-->
-      <li><a data-toggle="modal" data-target="#modal1"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a data-toggle="modal" data-target="#modal1" class="a-sign-up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -41,13 +41,13 @@
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <h2 class="failedmessage1"></h2>
+                  <h2 class="failedmessage1 fm"></h2>
                 </div>
               </div>
             </div>
           </div>
           <!-- Explanation of Sign In model-->
-      <li><a data-toggle="modal" data-target="#modal2"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+      <li><a data-toggle="modal" data-target="#modal2" class="a-sign-in"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
       <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -63,21 +63,62 @@
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <h2 class="failedmessage2"></h2>
+                  <h2 class="failedmessage2 fm"></h2>
                 </div>
               </div>
             </div>
           </div>
-      <!--  -->
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Out</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-edit"></span> Change Password</a></li>
+          <!-- Explanation on My Notes -->
+          <li>
+          <a class="my-notes"><span class="glyphicon glyphicon-list-alt"></span> My Notes</a>
+        </li>
+      <!-- Explanation on Sign Out -->
+      <li>
+      <a class="sign-out"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a>
+    </li>
+      <!-- Explanation on Password Change mpodel -->
+      <li><a data-toggle="modal" data-target="#modal3" class="a-change-pass"><span class="glyphicon glyphicon-edit"></span> Change Password</a></li>
+      <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="modalLabel">Change Password</h4>
+                </div>
+                <div class="modal-body">
+                  <form id="change_pass">
+                    <input type="password" name="passwords[old]" placeholder="Old Password">
+                    <input type="password" name="passwords[new]" placeholder="New Password">
+                    <input type="submit" value="Change Password ">
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <h2 class="failedmessage3 fm"></h2>
+                </div>
+              </div>
+            </div>
+          </div>
     </ul>
   </div>
 </nav>
 <!-- End of navbar -->
+<!-- Content -->
+<div class="col-xs-10 container-fluid main-content">
+<!-- Users Messages -->
 <div id="main-content" class="container-fluid">
-      <h2 id="message"></h2>
+      <h2 class="user-message"></h2>
 </div>
+
+<!-- showing all notes -->
+<div class="public">
+<div class="container-fluid first-content">
+      <h2 class="public-message">Public Notes</h2>
+</div>
+<div id="allContent" class="content">
+    </div>
+  </div>
+    <div><textarea></textarea></div>
+  </div>
 </body>
 
 </html>

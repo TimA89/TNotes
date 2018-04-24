@@ -1,0 +1,13 @@
+{{#each notes as |note|}}
+ <!-- Temolate structure of db -->
+  <h3 data-id="{{note.id}}" class="all-notes"> Title: {{note.title}}</br><small>Date Created: {{note.date}}</h3>
+
+  <div data-id="{{note.id}}" class="public_bloc">
+    <p class="public-content">{{#if note.note_content}}
+      {{note.note_content}}
+    {{else}}
+      No notes provided.
+    {{/if}}</p>
+  </div>
+
+{{/each}}

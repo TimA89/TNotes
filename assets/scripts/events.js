@@ -14,7 +14,6 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  $('#message').text('')
   const data = getFormFields(event.target)
   api.signIn(data)
     .then(ui.signInSuccess)
@@ -38,13 +37,21 @@ const onChangePW = function (event) {
     .catch(ui.changePWFailure)
 }
 
+const onGetNotes = () => {
+  api.getNotes()
+    .then(ui.getNotesSuccess)
+    .catch(ui.getNotesFailure)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
-  $('#sign-out').on('submit', onSignOut)
+  $('.sign-out').on('click', onSignOut)
   $('#change_pass').on('submit', onChangePW)
+  $('#brand').on('click', onGetNotes)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onGetNotes
 }
