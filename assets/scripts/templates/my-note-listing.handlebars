@@ -1,0 +1,34 @@
+{{#each notes as |note|}}
+ <!-- Template structure of db -->
+  <h3 data-id="{{note.id}}" class="all-notes"> Title: {{note.title}}</br><small>Date Created: {{note.date}}</small></h3>
+
+  <div data-id="{{note.id}}" class="public_bloc">
+    <p class="public-content">{{#if note.note_content}}
+      {{note.note_content}}
+    {{else}}
+      No notes provided.
+    {{/if}}</p>
+  </div>
+  <!-- Explanation of update button -->
+  <button data-id="{{note.id}}" data-toggle="modal" data-target="#modalupdate" class="update" type="submit">Update</button>
+  <!-- Modal for update biutton -->
+  <div data-id="{{note.id}}" class="modal fade" id="modalupdate" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+        <div data-id="{{note.id}}" class="modal-dialog" role="document">
+          <div data-id="{{note.id}}" class="modal-content">
+            <div data-id="{{note.id}}" class="modal-body">
+              <form data-id="{{note.id}}" class="updating-note-form">
+                <p>Title: <input type="text" name="note[title]" value="{{note.title}}"></p>
+                <p>Date: <input type="date" name="note[date]" value="{{note.date}}"></p>
+                <textarea type="text" name="note[note_content]" maxlength="1000" rows="4" cols="50">{{note.note_content}}</textarea>
+              </br><input type="submit" name="submit" value="Update">
+              </form>
+            </div>
+            <div class="modal-footer">
+              <h2 class="failedmessage2 fm"></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+  <button data-id="{{note.id}}" class="destroy" type="submit">Remove</button>
+
+{{/each}}

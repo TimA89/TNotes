@@ -8,9 +8,11 @@
 
 const authEvents = require('./events')
 
+$('.public-link').hide()
 $('.my-notes').hide()
 $('.sign-out').hide()
 $('.a-change-pass').hide()
+$('#createContent').hide()
 $('.user-message').text('Please Sign In/Sign Up if you would like to see your notes')
 
 authEvents.onGetNotes()

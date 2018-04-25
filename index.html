@@ -68,9 +68,23 @@
               </div>
             </div>
           </div>
+          <!-- Explanation on Public Notes -->
+          <li>
+          <a class="public-link"><span class="glyphicon glyphicon-list-alt"></span> Public Notes</a>
+          </li>
           <!-- Explanation on My Notes -->
           <li>
-          <a class="my-notes"><span class="glyphicon glyphicon-list-alt"></span> My Notes</a>
+            <ul class="nav navbar-nav my-notes">
+                  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span> My Notes</a></a>
+                    <ul class="dropdown-menu">
+                      <!-- Link for All notes -->
+                      <li><a class="glyphicon glyphicon-list-alt all-notes"> All Notes</a></li>
+                      <!-- Link for new note model -->
+                      <li><a class="glyphicon glyphicon-pencil create-note"> New Note</a></li>
+                    </ul>
+                  </li>
+                </ul>
         </li>
       <!-- Explanation on Sign Out -->
       <li>
@@ -117,7 +131,24 @@
 <div id="allContent" class="content">
     </div>
   </div>
-    <div><textarea></textarea></div>
+
+<!-- Users All notes -->
+  <div class="personal">
+  <div class="container-fluid first-content">
+        <h2 class="personal-message">My Notes</h2>
+  </div>
+  <div id="myAllContent" class="content">
+      </div>
+    </div>
+    <div id="createContent" class="container-fluid content">
+      <h3>Create a Note:</h3>
+      <form id="createForm">
+        <p>Title: <input type="text" name="note[title]" value="Title"></p>
+        <p>Date: <input type="date" name="note[date]"></p>
+        <textarea type="text" name="note[note_content]" maxlength="1000" rows="4" cols="50"></textarea>
+      </br><input type="submit" name="submit" value="Create">
+      </form>
+        </div>
   </div>
 </body>
 

@@ -21,15 +21,24 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   }
   .public-content {
     background-color: #c1c1cc;
-    border: 1px solid #e1e1e8;
+    // border: 1px solid #e1e1e8;
     border-radius: 4px;
     font-size: 14px;
     margin-bottom: 14px;
     padding: 9px 14px;
   }
+
 }
 
 .user-message {
+  text-align: center;
+}
+
+.public-message {
+  text-align: center;
+}
+
+.personal-message {
   text-align: center;
 }
 

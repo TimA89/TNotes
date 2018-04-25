@@ -1,6 +1,7 @@
 {{#each notes as |note|}}
  <!-- Temolate structure of db -->
-  <h3 data-id="{{note.id}}" class="all-notes"> Title: {{note.title}}</br><small>Date Created: {{note.date}}</h3>
+  <h3 data-id="{{note.id}}" class="all-notes"> Title: {{note.title}}</br><small>Date Created: {{note.date}}</small>
+  </br><small>User Name: {{note.user.email}}</small></h3>
 
   <div data-id="{{note.id}}" class="public_bloc">
     <p class="public-content">{{#if note.note_content}}

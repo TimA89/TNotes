@@ -43,7 +43,34 @@ const changePW = function (data) {
 
 const getNotes = function () {
   return $.ajax({
-    url: config.apiUrl + '/notes'
+    url: config.apiUrl + '/notes',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json'
+    }
+  })
+}
+
+const getMyNotes = function () {
+  return $.ajax({
+    url: config.apiUrl + '/users/' + store.user.id,
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateNote = function (data, gameId) {
+  return $.ajax({
+    url: config.apiUrl + '/notes/' + gameId,
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
   })
 }
 
@@ -52,5 +79,7 @@ module.exports = {
   signIn,
   signOut,
   changePW,
-  getNotes
+  getNotes,
+  getMyNotes,
+  updateNote
 }
