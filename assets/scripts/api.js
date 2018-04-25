@@ -62,9 +62,9 @@ const getMyNotes = function () {
   })
 }
 
-const updateNote = function (data, gameId) {
+const updateNote = function (data, noteId) {
   return $.ajax({
-    url: config.apiUrl + '/notes/' + gameId,
+    url: config.apiUrl + '/notes/' + noteId,
     method: 'PATCH',
     headers: {
       contentType: 'application/json',
@@ -79,9 +79,21 @@ const createNote = function (data) {
     url: config.apiUrl + '/notes',
     method: 'POST',
     headers: {
+      contentType: 'application/json',
       Authorization: 'Token token=' + store.user.token
     },
     data
+  })
+}
+
+const destroyNote = function (noteId) {
+  return $.ajax({
+    url: config.apiUrl + '/notes/' + noteId,
+    method: 'DELETE',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -93,5 +105,6 @@ module.exports = {
   getNotes,
   getMyNotes,
   updateNote,
-  createNote
+  createNote,
+  destroyNote
 }

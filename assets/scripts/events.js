@@ -18,6 +18,7 @@ const onSignIn = function (event) {
   // console.log(data)
   api.signIn(data)
     .then(ui.signInSuccess)
+    .then(() => onGetMyNotes(event))
     .catch(ui.signInFailure)
 }
 
@@ -26,8 +27,8 @@ const onSignOut = function (event) {
   const data = getFormFields(event.target)
   api.signOut(data)
     .then(ui.signOutSuccess)
+    .then(() => onGetNotes(event))
     .catch(ui.signOutFailure)
-  $('#sign-in')[0].reset()
 }
 
 const onChangePW = function (event) {
@@ -55,15 +56,16 @@ const onUpdateNote = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
   // console.log(data)
-  const gameId = $(event.target).closest('div').attr('data-id')
-  console.log(gameId)
-  api.updateNote(data, gameId)
+  const noteId = $(event.target).closest('div').attr('data-id')
+  // console.log(gameId)
+  api.updateNote(data, noteId)
     .then(ui.updateNoteSuccess)
     .then(() => onGetMyNotes(event))
     .catch(ui.updateNoteFailure)
 }
 
-const createShows = () => {
+const createShows = (event) => {
+  event.preventDefault()
   $('.user-message').text('')
   $('#createContent').show()
   $('.personal').hide()
@@ -74,8 +76,18 @@ const onCreateNote = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.createNote(data)
-    .then(ui.onCreateSuccess)
-    .catch(ui.onCreateFailure)
+    .then(ui.createSuccess)
+    .then(() => onGetMyNotes(event))
+    .catch(ui.createFailure)
+}
+
+const onDestroyNote = (event) => {
+  event.preventDefault()
+  const noteId = $(event.target).closest('button').attr('data-id')
+  api.destroyNote(noteId)
+    .then(ui.destroyNoteSuccess)
+    .then(() => onGetMyNotes(event))
+    .catch(ui.destroyNoteFailure)
 }
 
 const addHandlers = () => {
@@ -88,7 +100,7 @@ const addHandlers = () => {
   $('.all-notes').on('click', onGetMyNotes)
   $('#myAllContent').on('submit', '.updating-note-form', onUpdateNote)
   $('.create-note').on('click', createShows)
-  $('.update-success-button').on('submit', onGetMyNotes)
+  $('#myAllContent').on('click', '.destroy', onDestroyNote)
   $('#createForm').on('submit', onCreateNote)
 }
 

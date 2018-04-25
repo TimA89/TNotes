@@ -17,9 +17,9 @@
           <div data-id="{{note.id}}" class="modal-content">
             <div data-id="{{note.id}}" class="modal-body">
               <form data-id="{{note.id}}" class="updating-note-form">
-                <p>Title: <input type="text" name="note[title]" value="{{note.title}}"></p>
-                <p>Date: <input type="date" name="note[date]" value="{{note.date}}"></p>
-                <textarea type="text" name="note[note_content]" maxlength="1000" rows="4" cols="50">{{note.note_content}}</textarea>
+                <p>Title: <input required type="text" name="note[title]" value="{{note.title}}"></p>
+                <p>Date: <input required type="date" name="note[date]" value="{{note.date}}"></p>
+                <textarea required type="text" name="note[note_content]" maxlength="1000" rows="4" cols="50">{{note.note_content}}</textarea>
               </br><input class="update-success-button" type="submit" name="submit" value="Update">
               </form>
             </div>

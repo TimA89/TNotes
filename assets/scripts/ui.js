@@ -9,7 +9,7 @@ const showMyNotesTemplate = require('./templates/my-note-listing.handlebars')
 
 const signUpSuccess = () => {
   $('.user-message').text('Welcome to TPad expirience! Please sign in to start!')
-  // setTimeout(() => $('.user-message').text(''), 5000)
+  setTimeout(() => $('.user-message').text(''), 5000)
   $('#modal1').modal('toggle')
   $('input[type=text]').val('')
   $('input[type=password]').val('')
@@ -23,6 +23,7 @@ const signInSuccess = (data) => {
   store.user = data.user
   // console.log(data)
   $('.user-message').text('Your Personal TPad welcomes you')
+  setTimeout(() => $('.user-message').text(''), 5000)
   $('#modal2').modal('toggle')
   $('input[type=text]').val('')
   $('input[type=password]').val('')
@@ -63,13 +64,14 @@ const signOutSuccess = () => {
 }
 
 const signOutFailure = () => {
-  $('.user-message').text('Your Password was changed successfully')
+  $('.user-message').text('Your Weren\'t able to Sign Out')
   setTimeout(() => $('.user-message').text(''), 5000)
 }
 
 const getNotesSuccess = (data) => {
   store.notes = data.notes
   $('.personal').hide()
+  $('#createContent').hide()
   $('.public').show()
   const showNotesHtml = showNotesTemplate({ notes: store.notes })
   $('#allContent').html(showNotesHtml)
@@ -80,30 +82,53 @@ const getNotesFailure = () => {
 }
 
 const getMyNotesSuccess = (data) => {
-  $('.user-message').text('')
   // console.log(data.user.notes)
   $('.public').hide()
   $('#createContent').hide()
   $('.personal').show()
   const showNotesHtml = showMyNotesTemplate({ notes: data.user.notes })
   $('#myAllContent').html(showNotesHtml)
+  if (data.user.notes.length === 0) {
+    $('#myAllContent').html('<h2>Hey, you dont have any notes, create some!</h2>')
+  }
 }
 
 const getMyNotesFailure = () => {
-  $('.message').text('Sorry, but your notes are not available at the moment')
+  $('.user-message').text('Sorry, but your notes are not available at the moment')
+  setTimeout(() => $('.user-message').text(''), 5000)
 }
 
 const updateNoteSuccess = () => {
+  $('.user-message').text('Your note was updated')
+  setTimeout(() => $('.user-message').text(''), 5000)
   $('.modal').modal('hide')
-  console.log('update worked')
+  // console.log('update worked')
 }
 
 const updateNoteFailure = () => {
-  console.log('at')
+  $('.user-message').text('Sorry, but you are not able to update your note at the moment')
+  setTimeout(() => $('.user-message').text(''), 5000)
 }
 
-const onCreateSuccess = () => {
+const createSuccess = () => {
   $('#createForm')[0].reset()
+  $('.user-message').text('Note was Created succesfully')
+  setTimeout(() => $('.user-message').text(''), 5000)
+}
+
+const createFailure = () => {
+  $('.user-message').text('Sorry, but you are not able to create your note at the moment')
+  setTimeout(() => $('.user-message').text(''), 5000)
+}
+
+const destroyNoteSuccess = () => {
+  $('.user-message').text('Note was Deleted succesfully')
+  setTimeout(() => $('.user-message').text(''), 5000)
+}
+
+const destroyNoteFailure = () => {
+  $('.user-message').text('Sorry, but you are not able to delete your note at the moment')
+  setTimeout(() => $('.user-message').text(''), 5000)
 }
 
 module.exports = {
@@ -120,6 +145,9 @@ module.exports = {
   getMyNotesSuccess,
   getMyNotesFailure,
   updateNoteSuccess,
-  onCreateSuccess,
-  updateNoteFailure
+  createSuccess,
+  createFailure,
+  updateNoteFailure,
+  destroyNoteSuccess,
+  destroyNoteFailure
 }
