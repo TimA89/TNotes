@@ -60,6 +60,7 @@ const signOutSuccess = () => {
   $('.my-notes').hide()
   $('.sign-out').hide()
   $('.a-change-pass').hide()
+  $('#sign-in')[0].reset()
   store.user = null
 }
 
