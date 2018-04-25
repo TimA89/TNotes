@@ -62,6 +62,7 @@ const signOutSuccess = () => {
   $('.a-change-pass').hide()
   $('#sign-up')[0].reset()
   $('#sign-in')[0].reset()
+  $('#createForm')[0].reset()
   store.user = null
 }
 
