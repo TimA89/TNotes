@@ -4,6 +4,9 @@ const showNotesTemplate = require('./templates/note-listing.handlebars')
 
 const showMyNotesTemplate = require('./templates/my-note-listing.handlebars')
 
+// const eve = require('./events.js')
+// const api = require('./api.js')
+
 const signUpSuccess = () => {
   $('.user-message').text('Welcome to TPad expirience! Please sign in to start!')
   // setTimeout(() => $('.user-message').text(''), 5000)
@@ -78,7 +81,7 @@ const getNotesFailure = () => {
 
 const getMyNotesSuccess = (data) => {
   $('.user-message').text('')
-  console.log(data.user.notes)
+  // console.log(data.user.notes)
   $('.public').hide()
   $('#createContent').hide()
   $('.personal').show()
@@ -91,11 +94,16 @@ const getMyNotesFailure = () => {
 }
 
 const updateNoteSuccess = () => {
-  $('#modalupdate').modal('toggle')
-  $('#myAllContent').('input[type=text]').val('')
-  $('input[type=text]').val('')
-  $('input[type=date]').val('')
-  $('textarea[type=text]').val('')
+  $('.modal').modal('hide')
+  console.log('update worked')
+}
+
+const updateNoteFailure = () => {
+  console.log('at')
+}
+
+const onCreateSuccess = () => {
+  $('#createForm')[0].reset()
 }
 
 module.exports = {
@@ -111,5 +119,7 @@ module.exports = {
   getNotesFailure,
   getMyNotesSuccess,
   getMyNotesFailure,
-  updateNoteSuccess
+  updateNoteSuccess,
+  onCreateSuccess,
+  updateNoteFailure
 }

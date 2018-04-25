@@ -15,7 +15,7 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
+  // console.log(data)
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
@@ -44,7 +44,8 @@ const onGetNotes = () => {
     .catch(ui.getNotesFailure)
 }
 
-const onGetMyNotes = () => {
+const onGetMyNotes = function (event) {
+  event.preventDefault()
   api.getMyNotes()
     .then(ui.getMyNotesSuccess)
     .catch(ui.getMyNotesFailure)
@@ -53,10 +54,13 @@ const onGetMyNotes = () => {
 const onUpdateNote = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
+  // console.log(data)
   const gameId = $(event.target).closest('div').attr('data-id')
+  console.log(gameId)
   api.updateNote(data, gameId)
     .then(ui.updateNoteSuccess)
+    .then(() => onGetMyNotes(event))
+    .catch(ui.updateNoteFailure)
 }
 
 const createShows = () => {
@@ -66,9 +70,13 @@ const createShows = () => {
   $('.public').hide()
 }
 
-// const onCreateNote = () => {
-//   api.
-// }
+const onCreateNote = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.createNote(data)
+    .then(ui.onCreateSuccess)
+    .catch(ui.onCreateFailure)
+}
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
@@ -80,10 +88,12 @@ const addHandlers = () => {
   $('.all-notes').on('click', onGetMyNotes)
   $('#myAllContent').on('submit', '.updating-note-form', onUpdateNote)
   $('.create-note').on('click', createShows)
-  // $('#createForm').on('click', onCreateNote)
+  $('.update-success-button').on('submit', onGetMyNotes)
+  $('#createForm').on('submit', onCreateNote)
 }
 
 module.exports = {
   addHandlers,
-  onGetNotes
+  onGetNotes,
+  onGetMyNotes
 }

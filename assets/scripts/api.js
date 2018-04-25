@@ -74,6 +74,17 @@ const updateNote = function (data, gameId) {
   })
 }
 
+const createNote = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/notes',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -81,5 +92,6 @@ module.exports = {
   changePW,
   getNotes,
   getMyNotes,
-  updateNote
+  updateNote,
+  createNote
 }
