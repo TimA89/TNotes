@@ -10,6 +10,10 @@ const onSignUp = function (event) {
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
+    .then(() => api.signIn(data))
+    .then(ui.signInSuccess)
+    .then(() => onGetMyNotes(event))
+  $('#modal2').modal('toggle')
 }
 
 const onSignIn = function (event) {

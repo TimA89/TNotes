@@ -11,6 +11,7 @@ const signUp = function (data) {
 }
 
 const signIn = function (data) {
+  // console.log(data)
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',

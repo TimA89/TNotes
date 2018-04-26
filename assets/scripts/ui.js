@@ -8,9 +8,9 @@ const showMyNotesTemplate = require('./templates/my-note-listing.handlebars')
 // const api = require('./api.js')
 
 const signUpSuccess = () => {
+  $('#modal1').modal('toggle')
   $('.user-message').text('Welcome to TPad expirience! Please sign in to start!')
   setTimeout(() => $('.user-message').text(''), 5000)
-  $('#modal1').modal('toggle')
   $('input[type=text]').val('')
   $('input[type=password]').val('')
 }

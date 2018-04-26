@@ -1,6 +1,7 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+
 .navbar-brand {
   font-size: xx-large;
   padding-left: 30px;
@@ -19,6 +20,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   small {
     color: #49494f;
   }
+
   .public-content {
     background-color: #c1c1cc;
     // border: 1px solid #e1e1e8;
