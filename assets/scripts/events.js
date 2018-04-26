@@ -11,9 +11,9 @@ const onSignUp = function (event) {
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
     .then(() => api.signIn(data))
-    .then(ui.signInSuccess)
+    .then(ui.autoSignInSuccess)
     .then(() => onGetMyNotes(event))
-  $('#modal2').modal('toggle')
+  // $('#modal2').modal('toggle')
 }
 
 const onSignIn = function (event) {

@@ -9,6 +9,7 @@ const showMyNotesTemplate = require('./templates/my-note-listing.handlebars')
 
 const signUpSuccess = () => {
   $('#modal1').modal('toggle')
+  // $('.modal').modal('hide')
   $('.user-message').text('Welcome to TPad expirience! Please sign in to start!')
   setTimeout(() => $('.user-message').text(''), 5000)
   $('input[type=text]').val('')
@@ -17,6 +18,22 @@ const signUpSuccess = () => {
 
 const signUpFailure = () => {
   $('.failedmessage1').text('Failed to Sign Up')
+}
+
+const autoSignInSuccess = (data) => {
+  // console.log(data)
+  $('#modal1').modal('toggle')
+  store.user = data.user
+  $('.user-message').text('Your Personal TPad welcomes you')
+  setTimeout(() => $('.user-message').text(''), 5000)
+  $('input[type=text]').val('')
+  $('input[type=password]').val('')
+  $('.a-sign-up').hide()
+  $('.a-sign-in').hide()
+  $('.public-link').show()
+  $('.my-notes').show()
+  $('.sign-out').show()
+  $('.a-change-pass').show()
 }
 
 const signInSuccess = (data) => {
@@ -152,5 +169,6 @@ module.exports = {
   createFailure,
   updateNoteFailure,
   destroyNoteSuccess,
-  destroyNoteFailure
+  destroyNoteFailure,
+  autoSignInSuccess
 }
