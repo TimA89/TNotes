@@ -83,6 +83,7 @@ const signOutSuccess = () => {
   $('#sign-in')[0].reset()
   $('#createForm')[0].reset()
   $('.failedmessage1').text('')
+  $('.failedmessage2').text('')
   store.user = null
 }
 
