@@ -17,12 +17,14 @@ const signUpSuccess = () => {
 }
 
 const signUpFailure = () => {
-  $('.failedmessage1').text('Failed to Sign Up')
+  // $('.failedmessage1').text('Failed to Sign Up')
+  setTimeout(() => $('.failedmessage1').text('Failed to Sign Up'), 300)
 }
 
 const autoSignInSuccess = (data) => {
   // console.log(data)
   $('#modal1').modal('toggle')
+  $('#sign-up')[0].reset()
   store.user = data.user
   $('.user-message').text('Your Personal TPad welcomes you')
   setTimeout(() => $('.user-message').text(''), 5000)
@@ -80,6 +82,7 @@ const signOutSuccess = () => {
   $('#sign-up')[0].reset()
   $('#sign-in')[0].reset()
   $('#createForm')[0].reset()
+  $('.failedmessage1').text('')
   store.user = null
 }
 
