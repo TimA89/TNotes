@@ -1,5 +1,8 @@
-# TNotes
+# TPad
 This is a client side repo for TPad single page application that allows user to create and store personal notes and also view other users notes.
+
+[Front End](https://tima89.github.io/TPad/)<br>
+[Back End](https://tpad.herokuapp.com/)
 
 # Technologies Used
 <li>GA Client Site Templata</li>
@@ -23,6 +26,14 @@ For a developing process I started from creating a HTML file, that had <code>nav
 Still need to work on smoother auto sign in and styling for web page. Option of leaving comments on notes are in working progress.
 
 # Wireframes and Users stories
-You can find a links for wireframe and users story pictures underneath:
+You can find a links for wireframe pictures underneath:
 
-(Client sign-in view)[https://imgur.com/wEIqhmj]
+[Main view](https://imgur.com/rrWcPhs)<br>
+[Client sign-in view](https://imgur.com/GxTcJF5)<br>
+[Creating a note](https://imgur.com/U9H3i7F)<br>
+
+User stories:
+<li>User wants to open a page and see notes of other users</li>
+<li>User wants to log in and see his notes</li>
+<li>User wants to be able to update and delete individual note</li>
+<li>User wants to add a new note</li>
