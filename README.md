@@ -24,3 +24,5 @@ Still need to work on smoother auto sign in and styling for web page. Option of 
 
 # Wireframes and Users stories
 You can find a links for wireframe and users story pictures underneath:
+
+(Client sign-in view)[https://imgur.com/wEIqhmj]
