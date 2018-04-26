@@ -9,11 +9,19 @@ const onSignUp = function (event) {
   const data = getFormFields(event.target)
   api.signUp(data)
     .then(ui.signUpSuccess)
+    .then(() => onAutoSignIn(data))
     .catch(ui.signUpFailure)
-    .then(() => api.signIn(data))
-    .then(ui.autoSignInSuccess)
-    .then(() => onGetMyNotes(event))
+    // .then(() => api.signIn(data))
+    // .then(() => ui.autoSignInSuccess)
+    // .then(() => onGetMyNotes(event))
 // $('#modal2').modal('toggle')
+}
+
+const onAutoSignIn = function (data) {
+  api.signIn(data)
+    .then(ui.signInSuccess)
+    .then(() => onGetMyNotes())
+    .catch(ui.signInFailure)
 }
 
 const onSignIn = function (event) {
@@ -49,8 +57,8 @@ const onGetNotes = () => {
     .catch(ui.getNotesFailure)
 }
 
-const onGetMyNotes = function (event) {
-  event.preventDefault()
+const onGetMyNotes = function () {
+  // event.preventDefault()
   api.getMyNotes()
     .then(ui.getMyNotesSuccess)
     .catch(ui.getMyNotesFailure)
@@ -81,7 +89,7 @@ const onCreateNote = function (event) {
   const data = getFormFields(event.target)
   api.createNote(data)
     .then(ui.createSuccess)
-    .then(() => onGetMyNotes(event))
+    .then(() => onGetMyNotes())
     .catch(ui.createFailure)
 }
 
