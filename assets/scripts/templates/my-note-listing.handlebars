@@ -1,3 +1,5 @@
+<h1> Blah</h1>
+
 {{#each notes as |note|}}
  <!-- Template structure of db -->
   <h3 data-id="{{note.id}}" class="all-notes"> Title: {{note.title}}</br><small>Date Created: {{note.date}}</small></h3>
@@ -29,6 +31,8 @@
           </div>
         </div>
       </div>
+  <!-- <button data-id="{{note.id}}" class="destroy" type="submit">Remove</button> -->
   <button data-id="{{note.id}}" class="destroy" type="submit">Remove</button>
+
 
 {{/each}}

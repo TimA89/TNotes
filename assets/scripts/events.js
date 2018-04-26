@@ -13,7 +13,7 @@ const onSignUp = function (event) {
     .then(() => api.signIn(data))
     .then(ui.autoSignInSuccess)
     .then(() => onGetMyNotes(event))
-  // $('#modal2').modal('toggle')
+// $('#modal2').modal('toggle')
 }
 
 const onSignIn = function (event) {

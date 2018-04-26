@@ -7,7 +7,7 @@ const showMyNotesTemplate = require('./templates/my-note-listing.handlebars')
 // const eve = require('./events.js')
 // const api = require('./api.js')
 
-const signUpSuccess = () => {
+const signUpSuccess = (data) => {
   $('#modal1').modal('toggle')
   // $('.modal').modal('hide')
   $('.user-message').text('Welcome to TPad expirience! Please sign in to start!')
@@ -23,8 +23,7 @@ const signUpFailure = () => {
 
 const autoSignInSuccess = (data) => {
   // console.log(data)
-  $('#modal1').modal('toggle')
-  $('#sign-up')[0].reset()
+  $('#modal1').modal('hide')
   store.user = data.user
   $('.user-message').text('Your Personal TPad welcomes you')
   setTimeout(() => $('.user-message').text(''), 5000)
