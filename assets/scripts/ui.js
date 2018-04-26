@@ -96,7 +96,10 @@ const getNotesSuccess = (data) => {
   $('.personal').hide()
   $('#createContent').hide()
   $('.public').show()
-  const showNotesHtml = showNotesTemplate({ notes: store.notes })
+  const showNotesHtml = showNotesTemplate({
+    notes: store.notes.sort(function (a, b) {
+      return b.id - a.id
+    }) })
   $('#allContent').html(showNotesHtml)
 }
 
@@ -109,7 +112,10 @@ const getMyNotesSuccess = (data) => {
   $('.public').hide()
   $('#createContent').hide()
   $('.personal').show()
-  const showNotesHtml = showMyNotesTemplate({ notes: data.user.notes })
+  const showNotesHtml = showMyNotesTemplate({
+    notes: data.user.notes.sort(function (a, b) {
+      return b.id - a.id
+    }) })
   $('#myAllContent').html(showNotesHtml)
   if (data.user.notes.length === 0) {
     $('#myAllContent').html('<h2>Hey, you dont have any notes, create some!</h2>')
