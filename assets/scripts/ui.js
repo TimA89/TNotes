@@ -42,7 +42,7 @@ const signInSuccess = (data) => {
   // console.log(data)
   $('.user-message').text('Your Personal TPad welcomes you')
   setTimeout(() => $('.user-message').text(''), 5000)
-  $('#modal2').modal('toggle')
+  $('#modal2').modal('hide')
   $('input[type=text]').val('')
   $('input[type=password]').val('')
   $('.a-sign-up').hide()
