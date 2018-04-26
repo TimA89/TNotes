@@ -34,6 +34,10 @@ You can find a links for wireframe pictures underneath:
 
 User stories:
 <li>User wants to open a page and see notes of other users</li>
-<li>User wants to log in and see his notes</li>
-<li>User wants to be able to update and delete individual note</li>
+<li>User wants to sign up, auto sign in and see his notes</li>
+<li>User wants to sign in and see his notes</li>
+<li>User wants to be able to update and delete his/her note</li>
 <li>User wants to add a new note</li>
+<li>User wants to be able to see other users notes</li>
+<li>User doesnt want other users update his notes</li>
+<li>User wants to be able to sign out</li>
